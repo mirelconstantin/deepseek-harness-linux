@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.deepseek.harness</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>DeepSeek Harness</name>
+  <summary>Native desktop workbench and runtime for DeepSeek agents</summary>
+  <description>
+    <p>
+      DeepSeek Harness is an open-source agent workbench capable of running multi-turn coding tasks,
+      autonomous browser/computer interactions, background automation, and reasoning workflows.
+    </p>
+    <p>
+      Features:
+    </p>
+    <ul>
+      <li>Native Linux desktop integration for GNOME, Zorin OS, and KDE Plasma.</li>
+      <li>System tray presence and background execution with instant window restore.</li>
+      <li>Landlock LSM subprocess sandboxing.</li>
+      <li>Full DeepSeek-V3, DeepSeek-V4, and DeepSeek-R1 model support.</li>
+      <li>Composable plugin micro-framework powered by Cordis.</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">com.deepseek.harness.desktop</launchable>
+  <url type="homepage">https://github.com/mirelconstantin/deepseek-harness-linux</url>
+  <url type="bugtracker">https://github.com/mirelconstantin/deepseek-harness-linux/issues</url>
+  <developer id="com.pazalgroup">
+    <name>Mirel Constantin &amp; DeepSeek AI</name>
+  </developer>
+  <releases>
+    <release version="0.2.1-rc.2" date="2026-10-23">
+      <description>
+        <p>Linux desktop release with native GNOME/Zorin OS window integration, system tray support, and instant re-focusing.</p>
+      </description>
+    </release>
+  </releases>
+  <content_rating type="oars-1.1" />
+</component>
