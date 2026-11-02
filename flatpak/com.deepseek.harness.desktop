@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=DeepSeek Harness
+GenericName=AI Agent Workbench
+Comment=Native desktop workbench and runtime for DeepSeek agents
+Exec=deepseek-harness %U
+Icon=com.deepseek.harness
+Terminal=false
+Type=Application
+Categories=Development;IDE;Utility;
+StartupNotify=true
+StartupWMClass=deepseek-harness
+MimeType=x-scheme-handler/dsh;
+Keywords=ai;deepseek;agent;harness;llm;chat;coding;workbench;

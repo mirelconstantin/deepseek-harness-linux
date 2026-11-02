@@ -1,0 +1,47 @@
+app-id: com.deepseek.harness
+runtime: org.freedesktop.Platform
+runtime-version: '24.08'
+sdk: org.freedesktop.Sdk
+command: deepseek-harness
+separate-locales: false
+
+finish-args:
+  # Display and Windowing (X11 & Wayland)
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --device=dri
+  # Networking
+  - --share=network
+  # Filesystem permissions (full host access for coding workbench / agent files)
+  - --filesystem=host
+  # Notifications and System Tray
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --own-name=org.kde.StatusNotifierItem-*-*
+  # Theme and settings access
+  - --filesystem=xdg-run/dconf
+  - --talk-name=ca.desrt.dconf
+  - --env=DCONF_USER_CONFIG_DIR=.config/dconf
+  # Audio
+  - --socket=pulseaudio
+
+modules:
+  - name: deepseek-harness
+    buildsystem: simple
+    build-commands:
+      # Install application binaries into /app/lib/deepseek-harness
+      - install -dm755 /app/lib/deepseek-harness
+      - cp -r * /app/lib/deepseek-harness/
+      # Install launcher binary in /app/bin
+      - install -dm755 /app/bin
+      - ln -sf /app/lib/deepseek-harness/deepseek-harness /app/bin/deepseek-harness
+      # Install desktop entry and AppStream metainfo
+      - install -Dm644 com.deepseek.harness.desktop /app/share/applications/com.deepseek.harness.desktop
+      - install -Dm644 com.deepseek.harness.metainfo.xml /app/share/metainfo/com.deepseek.harness.metainfo.xml
+      # Install icons
+      - install -Dm644 icon.png /app/share/icons/hicolor/512x512/apps/com.deepseek.harness.png
+      - install -Dm644 icon.svg /app/share/icons/hicolor/scalable/apps/com.deepseek.harness.svg
+    sources:
+      - type: dir
+        path: app-dist
